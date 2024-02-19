@@ -1,0 +1,40 @@
+.container{
+    width: 300px;
+    height: 300px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+span{
+    font-size: 30px;
+}
+
+form{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+button{
+    cursor: pointer;
+}
+
+.button{
+    padding: 1px 6px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.87);
+    background: #6b6b6b;
+    border-radius: 2px;
+}
+
+.login{
+    padding: 4px 12px;
+    font-size: 17px;
+}
