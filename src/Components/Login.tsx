@@ -26,6 +26,10 @@ export default function Login() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!.,])(?=.*[a-zA-Z]).{8,}$/;
         if (emailRegex.test(email) && passwordRegex.test(pass)) {
+            if(passwordRef.current && emailRef.current){
+                passwordRef.current.classList.remove(styles.invalid);
+                emailRef.current.classList.remove(styles.invalid);
+            }
             let objectLogin: LoginObject = {
                 email: email,
                 password: pass
@@ -33,11 +37,19 @@ export default function Login() {
             console.log(objectLogin);
             alert('Login Success, check console');
         } else {
-            if (passwordRef.current && !passwordRegex.test(pass)) {
-                passwordRef.current.focus();
+            if (passwordRef.current) {
+                passwordRef.current.classList.remove(styles.invalid);
+                if(!passwordRegex.test(pass)){
+                    passwordRef.current.focus();
+                    passwordRef.current.classList.add(styles.invalid);
+                }
             }
-            if (emailRef.current && !emailRegex.test(email)) {
-                emailRef.current.focus();
+            if (emailRef.current) {
+                emailRef.current.classList.remove(styles.invalid);
+                if(!emailRegex.test(email)){
+                    emailRef.current.focus();
+                    emailRef.current.classList.add(styles.invalid);
+                }
             }
         }
     };
